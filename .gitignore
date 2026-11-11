@@ -4,3 +4,5 @@ node_modules/
 herdr-shot.png
 mods/janus/jsconfig.json
 mods/janus/gpui-kit.d.ts
+herdr-mod/
+preview-check.png
