@@ -165,11 +165,13 @@ Host `docs/` with GitHub Pages:
 The icon is relative (`icons/janus.svg`) and resolves against the index URL,
 exactly as the format requires.
 
-### 2b-bis. The tarball error
+### 2b-bis. Troubleshooting: the tarball error
 
 `ERR_PNPM_TARBALL_UNRECOGNIZED — The response is neither a gzip nor a tar
-archive` means **the index URL itself was installed as a package**. That URL is
-a JSON list, not a tarball. The correct sequence is:
+archive` (with a command such as
+`pnpm add https://wolfloiz.github.io/plugin-janus/...`) means **the index URL
+itself was installed as a package**. That URL is a JSON list, not a tarball.
+The correct sequence is:
 
 1. Add the index URL under **Discover → Add index source**.
 2. Open the **Janus** card from that source.

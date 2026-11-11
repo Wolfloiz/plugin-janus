@@ -240,9 +240,11 @@ See [PUBLISHING.md](PUBLISHING.md) for the three channels:
 1. **Herdr Gallery** — GitHub topic `herdr-mod`, root `RECIPE.md`,
    `preview.png`, `mods/janus/`; appears at
    [herdr.dev/mods](https://herdr.dev/mods) within the hour.
-2. **DeepSeek Harness plugin index** — publish the `dsh-janus` bundle to npm,
-   generate `docs/index.json`, enable GitHub Pages, and share the index URL;
-   users add it in **Plugins → Custom plugin indexes → Discover**.
+2. **DeepSeek Harness plugin index** — publish the `dsh-janus` bundle to npm
+   **or use the default Git source**, generate `docs/index.json`, enable GitHub
+   Pages, and share the index URL; users add it in
+   **Plugins → Custom plugin indexes → Discover**. The index URL is a list, not
+   a tarball: add it as a source, then install the **Janus** card.
 3. **Trendshift** — sign in, click **Submit repository**, paste the public
    GitHub URL; Trendshift monitors momentum and may feature it. Add the badge
    after a repository page exists.
