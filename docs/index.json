@@ -61,9 +61,12 @@
       "versions": [
         {
           "version": "0.1.0",
-          "publishTimestamp": 1794424631,
+          "publishTimestamp": 1794440965,
           "source": {
-            "type": "npm"
+            "type": "git",
+            "url": "https://github.com/Wolfloiz/plugin-janus",
+            "commit": "ec524eeca7d70adc2bd17b59127d1794b6e1b654",
+            "path": "dsh-janus"
           },
           "engines": {
             "dsh": ">=0.2.0-rc.1 <0.3.0"

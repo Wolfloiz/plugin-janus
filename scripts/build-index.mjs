@@ -15,7 +15,9 @@ import { fileURLToPath } from "node:url";
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
 const pkg = JSON.parse(await readFile(join(root, "dsh-janus/package.json"), "utf8"));
 const repoUrl = "https://github.com/Wolfloiz/plugin-janus";
-const sourceKind = process.env.JANUS_INDEX_SOURCE === "git" ? "git" : "npm";
+// Git is the safe default: it works before the npm package is published.
+// Set JANUS_INDEX_SOURCE=npm only after `npm publish` succeeds.
+const sourceKind = process.env.JANUS_INDEX_SOURCE === "npm" ? "npm" : "git";
 const version = pkg.version;
 const dshRange = pkg.engines?.dsh ?? ">=0.2.0-rc.1 <0.3.0";
 const timestamp = Number(process.env.JANUS_PUBLISH_TIMESTAMP || Math.floor(Date.now() / 1000));

@@ -96,9 +96,38 @@ declares:
 and `dsh-janus/cordis.patch.yml` inserts the `janus` row. That is what lets
 `dsh plugin add` compose the layer and what the index generator looks for.
 
-### 2a. Publish the bundle to npm
+### 2a. Choose the source: Git (works now) or npm
 
-`dsh-janus` is available on npm (checked 2026-11-11). From `dsh-janus/`:
+An index entry can point to the **GitHub repo at a pinned commit** (no npm
+account needed) or to an **npm package**. `scripts/build-index.mjs` defaults to
+Git because it works as soon as the repo is public.
+
+**Git (default, recommended until the npm package exists):**
+
+```bash
+git add .
+git commit -m "release: v0.1.0"
+git push
+npm run build:index
+```
+
+The generated source is:
+
+```json
+{
+  "type": "git",
+  "url": "https://github.com/Wolfloiz/plugin-janus",
+  "commit": "<HEAD sha>",
+  "path": "dsh-janus"
+}
+```
+
+The market turns that into
+`git+https://github.com/Wolfloiz/plugin-janus.git#<commit>&path:/dsh-janus`,
+which was tested with `dsh plugin add`. No build script runs; the package is
+pure JavaScript.
+
+**npm (optional, after you publish):**
 
 ```bash
 cd dsh-janus
@@ -106,30 +135,22 @@ npm login
 npm pack --dry-run          # lib/, bin/, cordis.patch.yml, package.json
 npm publish --access public
 cd ..
+JANUS_INDEX_SOURCE=npm npm run build:index
 ```
 
-The package is pure JavaScript — no build step and no `prepare` script, so npm
-and Git installs behave the same.
+The npm source installs `dsh-janus@0.1.0`. The package is pure JavaScript, so
+there is no `prepare` step and no build allowlist.
 
 > If `dsh-janus` is taken by the time you publish, switch to a scope such as
 > `@wolfloiz/dsh-janus`, update `name` in `package.json`, the bundle row in
 > `cordis.patch.yml`, and the index builder.
 
-### 2b. Build the index and host it
+### 2b. Host the index
 
-The repo includes a ready builder:
-
-```bash
-npm run build:index
-```
-
-It reads `dsh-janus/package.json`, writes `docs/index.json` and
-`docs/icons/janus.svg`, and uses the npm source by default. To list a Git
-commit instead (no npm), run:
+`npm run build:index` writes `docs/index.json` and
+`docs/icons/janus.svg`. Commit and push the result:
 
 ```bash
-git add . && git commit -m "release: v0.1.0"
-JANUS_INDEX_SOURCE=git npm run build:index
 git add docs && git commit -m "market: index for v0.1.0" && git push
 ```
 
@@ -143,6 +164,22 @@ Host `docs/` with GitHub Pages:
 
 The icon is relative (`icons/janus.svg`) and resolves against the index URL,
 exactly as the format requires.
+
+### 2b-bis. The tarball error
+
+`ERR_PNPM_TARBALL_UNRECOGNIZED — The response is neither a gzip nor a tar
+archive` means **the index URL itself was installed as a package**. That URL is
+a JSON list, not a tarball. The correct sequence is:
+
+1. Add the index URL under **Discover → Add index source**.
+2. Open the **Janus** card from that source.
+3. Install the card.
+
+If the card's source facts still show the Pages URL as the repository, the
+client cached an older index. Remove the index source and add it again after
+pushing the fixed `docs/index.json`; then retry the card. The repository fact
+must be `https://github.com/Wolfloiz/plugin-janus`, with a commit and
+`dsh-janus` as the directory.
 
 ### 2c. Verify as a user
 
@@ -228,7 +265,7 @@ git push origin main --tags
 gh repo edit Wolfloiz/plugin-janus \
   --add-topic herdr-mod,dsh-plugin,deepseek-harness,ai-agents,herdr
 
-# 5. DSH index + Pages
+# 5. DSH index + Pages (Git source; use JANUS_INDEX_SOURCE=npm after npm publish)
 npm run build:index
 git add docs && git commit -m "market: index for v0.1.0" && git push
 
