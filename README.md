@@ -141,7 +141,8 @@ Clone the repo and symlink the mod, then add the dock/keys (the installer does
 both):
 
 ```bash
-ln -sfn "$PWD/plugin-janus/mods/janus" ~/.config/herdr-app/mods/janus
+cd plugin-janus
+ln -sfn "$PWD/mods/janus" ~/.config/herdr-app/mods/janus
 herdr-app check ~/.config/herdr-app/mods/janus
 ```
 
