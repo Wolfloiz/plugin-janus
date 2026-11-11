@@ -1,0 +1,23 @@
+{
+  "name": "plugin-janus",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Janus: bidirectional control between DeepSeek Harness and Herdr",
+  "scripts": {
+    "test": "node --test dsh-janus/test/*.test.js",
+    "check": "node --check dsh-janus/lib/*.js && node --check dsh-janus/bin/janus.js && node --check mods/janus/main.js",
+    "check:mod": "herdr-app check mods/janus",
+    "dev:bridge": "node scripts/dev-bridge.js",
+    "install:all": "bash scripts/install.sh",
+    "uninstall": "bash scripts/uninstall.sh",
+    "build:index": "node scripts/build-index.mjs"
+  },
+  "author": "Luiz Henrique Ferreira Monteiro (Wolfloiz)",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wolfloiz/plugin-janus.git"
+  },
+  "homepage": "https://github.com/Wolfloiz/plugin-janus#readme"
+}

@@ -1,0 +1,52 @@
+{
+  "name": "dsh-janus",
+  "version": "0.1.0",
+  "description": "Janus bridge plugin: control Herdr from DeepSeek Harness, and DeepSeek Harness from Herdr",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "janus": "bin/janus.js"
+  },
+  "files": [
+    "lib",
+    "bin",
+    "cordis.patch.yml"
+  ],
+  "engines": {
+    "dsh": ">=0.2.0-rc.1 <0.3.0",
+    "node": ">=22"
+  },
+  "license": "MIT",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "author": "Luiz Henrique Ferreira Monteiro (Wolfloiz)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Wolfloiz/plugin-janus.git",
+    "directory": "dsh-janus"
+  },
+  "homepage": "https://github.com/Wolfloiz/plugin-janus#readme",
+  "bugs": {
+    "url": "https://github.com/Wolfloiz/plugin-janus/issues"
+  },
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "herdr",
+    "plugin",
+    "bundle",
+    "bridge",
+    "agents"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
+}

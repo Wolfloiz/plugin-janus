@@ -1,0 +1,6 @@
+.tmp/
+node_modules/
+*.log
+herdr-shot.png
+mods/janus/jsconfig.json
+mods/janus/gpui-kit.d.ts

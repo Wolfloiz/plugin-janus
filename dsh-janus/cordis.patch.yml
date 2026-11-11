@@ -1,0 +1,6 @@
+# Janus bundle layer: insert the plugin row into any DSH profile.
+# Config values come from the plugin defaults; users may override them in
+# their profile's cordis.patch.yml by targeting `id: janus`.
+- insert:
+    - id: janus
+      name: dsh-janus

@@ -1,0 +1,75 @@
+{
+  "format": 1,
+  "title": {
+    "en": "Janus",
+    "pt": "Janus"
+  },
+  "description": {
+    "en": "Bidirectional control between DeepSeek Harness and Herdr.",
+    "pt": "Controle bidirecional entre DeepSeek Harness e Herdr."
+  },
+  "metadata": {
+    "categories": {
+      "developer-tools": {
+        "title": {
+          "en": "Developer tools",
+          "pt": "Ferramentas de desenvolvimento"
+        }
+      }
+    },
+    "labels": {
+      "agents": {
+        "title": {
+          "en": "Agents",
+          "pt": "Agentes"
+        }
+      },
+      "herdr": {
+        "title": {
+          "en": "Herdr",
+          "pt": "Herdr"
+        }
+      },
+      "bridge": {
+        "title": {
+          "en": "Bridge",
+          "pt": "Ponte"
+        }
+      }
+    }
+  },
+  "plugins": [
+    {
+      "name": "dsh-janus",
+      "title": "Janus",
+      "description": "Janus bridge plugin: control Herdr from DeepSeek Harness, and DeepSeek Harness from Herdr",
+      "icon": "icons/janus.svg",
+      "author": "Wolfloiz",
+      "homepage": "https://github.com/Wolfloiz/plugin-janus#readme",
+      "repository": {
+        "url": "https://github.com/Wolfloiz/plugin-janus",
+        "directory": "dsh-janus"
+      },
+      "metadata": {
+        "category": "developer-tools",
+        "labels": [
+          "agents",
+          "herdr",
+          "bridge"
+        ]
+      },
+      "versions": [
+        {
+          "version": "0.1.0",
+          "publishTimestamp": 1794424631,
+          "source": {
+            "type": "npm"
+          },
+          "engines": {
+            "dsh": ">=0.2.0-rc.1 <0.3.0"
+          }
+        }
+      ]
+    }
+  ]
+}

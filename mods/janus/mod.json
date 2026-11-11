@@ -1,0 +1,9 @@
+{
+  "place": "none",
+  "title": "Janus",
+  "overlay": {
+    "width": 560,
+    "height": 720
+  },
+  "focusable": true
+}
