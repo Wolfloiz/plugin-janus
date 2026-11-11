@@ -16,11 +16,12 @@ The repo is already laid out for both stores: `mods/janus/` is the Herdr mod,
 `dsh-janus/` is the DSH bundle, `RECIPE.md` and `preview.png` are the Herdr
 gallery assets, and `docs/` will be the plugin index.
 
+> This checkout is already a git repository with commits. Skip `git init` and
+> the first commit if you keep that history. No remote is configured yet.
+
 ```bash
 cd /path/to/plugin-janus
-git init
-git add .
-git commit -m "feat: Janus — bidirectional DSH ↔ Herdr bridge"
+# git init && git add . && git commit -m "..."   # only for a fresh copy
 gh repo create Wolfloiz/plugin-janus \
   --public --source=. --remote=origin --push
 gh repo edit Wolfloiz/plugin-janus \
