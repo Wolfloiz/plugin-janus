@@ -1,10 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" width="128" height="128">
-  <rect width="128" height="128" rx="24" fill="#0b0f17"/>
-  <circle cx="64" cy="64" r="46" fill="#131a27" stroke="#7aa2ff" stroke-width="3"/>
-  <path d="M64 18a46 46 0 0 0 0 92z" fill="#7aa2ff"/>
-  <path d="M64 18a46 46 0 0 1 0 92z" fill="#26324a"/>
-  <circle cx="47" cy="56" r="4.5" fill="#0b0f17"/>
-  <circle cx="81" cy="56" r="4.5" fill="#dce6ff"/>
-  <path d="M38 78c8 7 18 7 26 0" fill="none" stroke="#0b0f17" stroke-width="4" stroke-linecap="round"/>
-  <path d="M90 78c-8 7-18 7-26 0" fill="none" stroke="#dce6ff" stroke-width="4" stroke-linecap="round"/>
+  <defs>
+    <radialGradient id="glow" cx="50%" cy="50%" r="60%">
+      <stop offset="0%" stop-color="#203050" stop-opacity="0.85"/>
+      <stop offset="100%" stop-color="#080b12" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="128" height="128" rx="26" fill="#080b12"/>
+  <rect width="128" height="128" rx="26" fill="url(#glow)"/>
+  <path d="M57 33 L31 64 L57 95" fill="none" stroke="#6aa8ff" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M71 33 L97 64 L71 95" fill="none" stroke="#f6a623" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>

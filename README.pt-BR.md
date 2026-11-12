@@ -11,7 +11,7 @@
 
 O nome é o deus romano de duas faces — uma olhando para cada lado.
 
-![Painel Janus](docs/preview.png)
+![Janus](preview.png)
 
 ```
 ┌──────────────────────── DSH (processo do web) ────────────────────────┐
