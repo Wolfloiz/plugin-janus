@@ -35,7 +35,7 @@ if command -v dsh >/dev/null; then
   if [ -f "$PATCH" ]; then
     node "$REPO/scripts/patch-profile.mjs" "$PATCH" janus remove >/dev/null
   fi
-  if dsh plugin --profile "$PROFILE" add "$REPO/dsh-janus"; then
+  if dsh plugin --profile "$PROFILE" add "$REPO"; then
     BUNDLE_OK=1
     say "bundle installed with dsh plugin add"
   else
