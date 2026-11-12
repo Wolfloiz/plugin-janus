@@ -13,7 +13,7 @@ import { dirname, join, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = resolve(dirname(fileURLToPath(import.meta.url)), "..");
-const pkg = JSON.parse(await readFile(join(root, "dsh-janus/package.json"), "utf8"));
+const pkg = JSON.parse(await readFile(join(root, "package.json"), "utf8"));
 const repoUrl = "https://github.com/Wolfloiz/plugin-janus";
 // Git is the safe default: it works before the npm package is published.
 // Set JANUS_INDEX_SOURCE=npm only after `npm publish` succeeds.
@@ -27,7 +27,7 @@ function gitCommit() {
 }
 
 const source = sourceKind === "git"
-  ? { type: "git", url: repoUrl, commit: gitCommit(), path: "dsh-janus" }
+  ? { type: "git", url: repoUrl, commit: gitCommit() }
   : { type: "npm" };
 
 const index = {
@@ -55,7 +55,7 @@ const index = {
       icon: "icons/janus.svg",
       author: "Wolfloiz",
       homepage: `${repoUrl}#readme`,
-      repository: { url: repoUrl, directory: "dsh-janus" },
+      repository: { url: repoUrl },
       metadata: { category: "developer-tools", labels: ["agents", "herdr", "bridge"] },
       versions: [
         {

@@ -117,15 +117,16 @@ The generated source is:
 {
   "type": "git",
   "url": "https://github.com/Wolfloiz/plugin-janus",
-  "commit": "<HEAD sha>",
-  "path": "dsh-janus"
+  "commit": "<HEAD sha>"
 }
 ```
 
 The market turns that into
-`git+https://github.com/Wolfloiz/plugin-janus.git#<commit>&path:/dsh-janus`,
-which was tested with `dsh plugin add`. No build script runs; the package is
-pure JavaScript.
+`git+https://github.com/Wolfloiz/plugin-janus.git#<commit>`, which was tested
+with `dsh plugin add`. No build script runs; the package is pure JavaScript.
+The repository root is the bundle (`dsh.bundle` + `cordis.patch.yml`) and its
+`main` re-exports `dsh-janus/lib/index.js`; `dsh-janus/` remains the npm
+package for npm installs.
 
 **npm (optional, after you publish):**
 
@@ -171,6 +172,11 @@ exactly as the format requires.
 archive` (with a command such as
 `pnpm add https://wolfloiz.github.io/plugin-janus/...`) means **the index URL
 itself was installed as a package**. That URL is a JSON list, not a tarball.
+
+The other error, **“Este pacote não declara nenhum pacote”**, came from the
+old repository root, which had no `dsh.bundle`. The root now declares one, so
+`pnpm add https://github.com/Wolfloiz/plugin-janus` installs a valid bundle.
+
 The correct sequence is:
 
 1. Add the index URL under **Discover → Add index source**.
@@ -180,8 +186,8 @@ The correct sequence is:
 If the card's source facts still show the Pages URL as the repository, the
 client cached an older index. Remove the index source and add it again after
 pushing the fixed `docs/index.json`; then retry the card. The repository fact
-must be `https://github.com/Wolfloiz/plugin-janus`, with a commit and
-`dsh-janus` as the directory.
+must be `https://github.com/Wolfloiz/plugin-janus`, with a commit (no
+directory).
 
 ### 2c. Verify as a user
 

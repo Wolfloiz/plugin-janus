@@ -124,16 +124,17 @@ Once `dsh-janus` is on npm:
 dsh plugin --profile web add dsh-janus
 ```
 
-Or install from Git at a pinned commit:
+Or install the repository root from Git at a pinned commit:
 
 ```bash
 dsh plugin --profile web add \
-  "git+https://github.com/Wolfloiz/plugin-janus.git#<sha>&path:/dsh-janus"
+  "git+https://github.com/Wolfloiz/plugin-janus.git#<sha>"
 ```
 
-The package declares `dsh.bundle` and a `cordis.patch.yml` that inserts the
-plugin row; `dsh plugin add` appends it to `dsh.profile.bundles`. See
-[Publishing](PUBLISHING.md).
+The repository root is a **bundle**: it declares `dsh.bundle`, and its `main`
+re-exports the implementation from `dsh-janus/lib/index.js`. The npm package in
+`dsh-janus/` is the same version/name for npm installs. `dsh plugin add`
+appends the bundle to `dsh.profile.bundles`. See [Publishing](PUBLISHING.md).
 
 ### Herdr mod only
 
@@ -214,7 +215,9 @@ node scripts/dev-bridge.js --discovery "$HOME/.dsh/janus/bridge.json"
 ## Project layout
 
 ```
-dsh-janus/            DSH bundle + plugin (Cordis, zero runtime deps)
+package.json          Git bundle: dsh.bundle + main -> dsh-janus/lib/index.js
+cordis.patch.yml      root bundle patch (inserts the janus row)
+dsh-janus/            npm package + plugin implementation (Cordis, no runtime deps)
   lib/index.js        plugin entry
   lib/bridge.js       HTTP + token + discovery
   lib/controller.js   sessions, jobs, Herdr actions

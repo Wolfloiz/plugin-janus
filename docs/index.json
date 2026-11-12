@@ -42,13 +42,12 @@
     {
       "name": "dsh-janus",
       "title": "Janus",
-      "description": "Janus bridge plugin: control Herdr from DeepSeek Harness, and DeepSeek Harness from Herdr",
+      "description": "Bidirectional control between DeepSeek Harness and Herdr",
       "icon": "icons/janus.svg",
       "author": "Wolfloiz",
       "homepage": "https://github.com/Wolfloiz/plugin-janus#readme",
       "repository": {
-        "url": "https://github.com/Wolfloiz/plugin-janus",
-        "directory": "dsh-janus"
+        "url": "https://github.com/Wolfloiz/plugin-janus"
       },
       "metadata": {
         "category": "developer-tools",
@@ -61,12 +60,11 @@
       "versions": [
         {
           "version": "0.1.0",
-          "publishTimestamp": 1794440965,
+          "publishTimestamp": 1794443069,
           "source": {
             "type": "git",
             "url": "https://github.com/Wolfloiz/plugin-janus",
-            "commit": "ec524eeca7d70adc2bd17b59127d1794b6e1b654",
-            "path": "dsh-janus"
+            "commit": "95d765dec969d84d38f912cf2243973663ea76d6"
           },
           "engines": {
             "dsh": ">=0.2.0-rc.1 <0.3.0"
