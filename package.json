@@ -1,9 +1,9 @@
 {
-  "name": "plugin-janus",
+  "name": "dsh-janus",
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "Janus: bidirectional control between DeepSeek Harness and Herdr",
+  "description": "Bidirectional control between DeepSeek Harness and Herdr",
   "scripts": {
     "test": "node --test dsh-janus/test/*.test.js",
     "check": "node --check dsh-janus/lib/*.js && node --check dsh-janus/bin/janus.js && node --check mods/janus/main.js",
@@ -19,5 +19,35 @@
     "type": "git",
     "url": "git+https://github.com/Wolfloiz/plugin-janus.git"
   },
-  "homepage": "https://github.com/Wolfloiz/plugin-janus#readme"
+  "homepage": "https://github.com/Wolfloiz/plugin-janus#readme",
+  "main": "dsh-janus/lib/index.js",
+  "exports": {
+    ".": "./dsh-janus/lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "bin": {
+    "janus": "dsh-janus/bin/janus.js"
+  },
+  "engines": {
+    "dsh": ">=0.2.0-rc.1 <0.3.0",
+    "node": ">=22"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "bugs": {
+    "url": "https://github.com/Wolfloiz/plugin-janus/issues"
+  },
+  "keywords": [
+    "deepseek",
+    "deepseek-harness",
+    "dsh",
+    "herdr",
+    "plugin",
+    "bundle",
+    "bridge",
+    "agents"
+  ]
 }

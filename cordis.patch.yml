@@ -1,0 +1,5 @@
+# Janus at the repository root, so `dsh plugin add <github-url>` works.
+# The implementation lives in dsh-janus/; this package's `main` re-exports it.
+- insert:
+    - id: janus
+      name: dsh-janus
